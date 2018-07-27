@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd /mnt/c/Users/gen/Desktop/dev/flatrogue
+git add .
+git add -u
+git ncommit
+git push origin master
+cd src
+find . -name "*.moon" | xargs wc -l | awk '{print $1}' | tail -1 > /mnt/c/Users/gen/Desktop/dev/random/flatrogue_logs/line_counts/`date '+%d%m%Y-%H%M%S'`
+find . -type f -name "*.moon" | wc -l > /mnt/c/Users/gen/Desktop/dev/random/flatrogue_logs/number_of_files/`date '+%d%m%Y-%H%M%S'` 
+cd /mnt/c/Users/gen/Desktop/dev/random
+git add .
+git add -u
+git ncommit
+git push origin master
+cd /mnt/c/Users/gen/Desktop/dev/keylog
+git add .
+git add -u
+git ncommit
+git push origin master
