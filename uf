@@ -1,14 +1,14 @@
 #!/bin/bash
 
-cd /mnt/c/Users/gen/Desktop/dev/flatrogue
+cd /mnt/c/Users/gen/Desktop/dev/game-name-dungeon
 git add .
 git add -u
 git ncommit
 git push origin master
 cd game
-find . -name "*.lua" | xargs wc -l | awk '{print $1}' | tail -1 > /mnt/c/Users/gen/Desktop/dev/random/flatrogue_logs/line_counts/`date '+%d%m%Y-%H%M%S'`
-find . -type f -name "*.lua" | wc -l > /mnt/c/Users/gen/Desktop/dev/random/flatrogue_logs/number_of_files/`date '+%d%m%Y-%H%M%S'` 
-cp /mnt/c/Users/gen/AppData/Roaming/LOVE/flatrogue/logs/* /mnt/c/Users/gen/Desktop/dev/random/flatrogue_logs/game_runs/
+find . -name "*.lua" | xargs wc -l | awk '{print $1}' | tail -1 > /mnt/c/Users/gen/Desktop/dev/random/game_name_dungeon_logs/line_counts/`date '+%d%m%Y-%H%M%S'`
+find . -type f -name "*.lua" | wc -l > /mnt/c/Users/gen/Desktop/dev/random/game_name_dungeon_logs/number_of_files/`date '+%d%m%Y-%H%M%S'` 
+cp /mnt/c/Users/gen/AppData/Roaming/LOVE/Game\ Name/logs/* /mnt/c/Users/gen/Desktop/dev/random/game_name_dungeon_logs/game_runs/
 cd /mnt/c/Users/gen/Desktop/dev/random
 git add .
 git add -u
