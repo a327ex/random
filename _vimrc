@@ -1,9 +1,8 @@
 set nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/vimfiles/plugged')
 
-Plug 'gmarik/vundle'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Lokaltog/vim-easymotion'
@@ -14,14 +13,11 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'leafo/moonscript-vim'
+Plug 'SirVer/UltiSnips'
 Plug 'tikhomirov/vim-glsl'
-Plug 'arcticicestudio/nord-vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'mattn/emmet-vim'
-Plug 'zah/nim.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'tbastos/vim-lua'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -38,16 +34,23 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
-let g:airline_theme='iceberg'
+let g:airline_theme='gruvbox'
 let g:ctrlp_root_markers = ['.ctrlp']
-let g:tagbar_ctags_bin = 'C:\Users\gen\ctags.exe'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories = ['~/vimfiles/UltiSnips', 'UltiSnips']
+let g:vaxe_skip_hxml = 1
+let g:indent_guides_start_level = 2
 
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>f :CtrlP<CR>
-nmap <leader>os :OpenSession<CR>
 nmap s <Plug>(easymotion-bd-w)
 nmap <F8> :TagbarToggle<CR>
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 set autoread
 
@@ -71,21 +74,24 @@ set autochdir
 set guicursor=a:block-Cursor/lCursor
 set guicursor+=a:blinkon0
 set guioptions=""
-set guifont=Consolas:h13
+set guifont=Consolas:h10
 set encoding=utf8
 set nobackup
 set nowb
 set noswapfile
 set foldmethod=marker
+set background=dark
+set listchars=eol:¬
+set list
 
 syntax enable
-colorscheme iceberg
+colorscheme gruvbox 
 
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
 set ai
 set si
 set wrap
@@ -97,6 +103,7 @@ noremap <C-i> <C-W>l
 map <C-h> :bp<CR>
 map <C-l> :bn<CR>
 map <C-w> :bd<CR>
+nmap <F3> $a<Space>[<C-R>=strftime("%d/%m/%y %H:%M:%S")<CR>]<ESC>
 
 nmap <M-1> <Plug>AirlineSelectTab1
 nmap <M-2> <Plug>AirlineSelectTab2
@@ -111,5 +118,6 @@ nmap <M-9> <Plug>AirlineSelectTab9
 nnoremap <silent> <F2> :NERDTree<CR>
 nnoremap <space> za
 
-cd ~/Desktop/dev
+cd E:/Projects
 autocmd VimEnter * IndentGuidesEnable
+autocmd FileType moon setlocal shiftwidth=2 tabstop=2
